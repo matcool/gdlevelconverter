@@ -108,10 +108,13 @@ def parse_removed_report(conversion_report: ConversionReport):
     return output
 
 
-def _main():
+def _main(args=None):
     """
     Main function for script
     """
+    if args is None:
+        import sys
+        args = sys.argv
 
     group_choices = list(GJGameObjectConversionGroupsByName) + \
         list(GJGameObjectConversionSubGroups)
@@ -129,7 +132,7 @@ def _main():
     parser.add_argument("-o", "--output",
                         help=".gmd file name to output to. use - to upload to servers")
 
-    args = parser.parse_args()
+    args = parser.parse_args(args=args)
 
     level = load_level_from_target(args.target)
 
