@@ -7,9 +7,9 @@ try:
     print("Geometry Dash 2.0+ to 1.9 Level Converter")
     print("by ~zmx")
     input_file = filedialog.askopenfilename(title='Open the level file', filetypes=(('GMD File', '*.gmd'),))
-    if input_file is None: exit()
-    output_file = filedialog.asksaveasfilename(title='Output .gmd file', filetypes=(('GMD File', '*.gmd'),))
-    if output_file is None: exit()
+    if not input_file: exit()
+    output_file = filedialog.asksaveasfilename(title='Output .gmd file', filetypes=(('GMD File', '*.gmd'),), defaultextension='gmd')
+    if not output_file: exit()
 
     args = [input_file, '-o', output_file]
     
